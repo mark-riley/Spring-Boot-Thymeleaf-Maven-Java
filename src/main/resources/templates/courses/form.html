@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
 <main>
     <h1 th:text="${mode == 'create' ? 'Create Course' : 'Edit Course'}"></h1>

@@ -6,9 +6,12 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
 <h1 th:text="${message}"></h1>
 
+<p>I am editing this text</p>
+
 </body>
 </html>
+
