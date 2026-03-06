@@ -17,8 +17,8 @@
         <button type="submit" style="display:none;">Search</button> </form>
 
     <p>
-        <a th:href="@{/courses/new}">Create new course</a>
-        <a th:href="@{/courses}" style="margin-left: 10px;">View All</a>
+        <button><a th:href="@{/courses/new}">Create new course</a></button>
+        <button style="margin-left: 10px;"><a th:href="@{/courses}">View All</a></button>
     </p>
 
     <table>
@@ -36,7 +36,8 @@
             <td th:text="${c.instructor}"></td>
             <td th:text="${c.courseCode}"></td>
             <td>
-                <a th:href="@{/courses/{id}/edit(id=${c.id})}">Edit</a>
+
+                <button><a th:href="@{/courses/{id}/edit(id=${c.id})}">Edit</a></button>
 
                 <form th:action="@{/courses/{id}/delete(id=${c.id})}" method="post" style="display:inline;">
                     <button type="submit">Delete</button>
