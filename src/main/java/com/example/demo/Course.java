@@ -14,18 +14,22 @@ public class Course {
 
     private String title;
     private String instructor;
+    private String courseNUM;
 
     public Course() {}
 
-    public Course(String title, String instructor) {
+    public Course(String title, String instructor, String courseNUM) {
         this.title = title;
         this.instructor = instructor;
+        this.courseNUM = courseNUM;
     }
 
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public String getInstructor() { return instructor; }
+    public String getCourseNUM() {return courseNUM; }
 
     public void setTitle(String title) { this.title = title; }
     public void setInstructor(String instructor) { this.instructor = instructor; }
+    public void setCourseNUM(String courseNUM) {this.courseNUM = courseNUM ; }
 }

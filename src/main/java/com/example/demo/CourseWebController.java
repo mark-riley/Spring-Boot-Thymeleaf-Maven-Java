@@ -54,6 +54,7 @@ public class CourseWebController {
 
         course.setTitle(updated.getTitle());
         course.setInstructor(updated.getInstructor());
+        course.setCourseNUM(updated.getCourseNUM());
         repo.save(course);
 
         return "redirect:/courses";

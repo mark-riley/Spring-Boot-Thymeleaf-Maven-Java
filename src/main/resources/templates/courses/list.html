@@ -21,6 +21,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Instructor</th>
+            <th>Course ID</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -29,6 +30,7 @@
             <td th:text="${c.id}"></td>
             <td th:text="${c.title}"></td>
             <td th:text="${c.instructor}"></td>
+            <td th:text="${c.courseNUM}"></td>
             <td>
                 <a th:href="@{/courses/{id}/edit(id=${c.id})}">Edit</a>
 
