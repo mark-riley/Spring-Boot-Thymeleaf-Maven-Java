@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/courses")
 public class CourseWebController {
@@ -44,6 +46,15 @@ public class CourseWebController {
         model.addAttribute("course", course);
         model.addAttribute("mode", "edit");
         return "courses/form";
+    }
+
+    @GetMapping("/{data}")
+    public String searchForm(@PathVariable String data, Model model) {
+        List<Course> filteredCourses = repo.searchAllFields(data);
+
+        model.addAttribute("courses", filteredCourses);
+
+        return "courses/list";
     }
 
     // UPDATE SUBMIT: update an existing course

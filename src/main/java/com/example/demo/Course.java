@@ -31,4 +31,6 @@ public class Course {
     public void setTitle(String title) { this.title = title; }
     public void setInstructor(String instructor) { this.instructor = instructor; }
     public void setCourseCode(String courseCode) {this.courseCode = courseCode ; }
+
+    public Long getId() {return id;}
 }
