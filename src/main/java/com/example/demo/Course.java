@@ -24,7 +24,6 @@ public class Course {
         this.courseCode = courseCode;
     }
 
-    public Long getId() { return id; }
     public String getTitle() { return title; }
     public String getInstructor() { return instructor; }
     public String getCourseCode() {return courseCode; }
