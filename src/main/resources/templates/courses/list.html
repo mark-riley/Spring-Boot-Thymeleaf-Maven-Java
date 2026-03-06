@@ -11,19 +11,19 @@
 <main>
     <h1>Courses</h1>
 
-    <form  style="display:inline;">
-        <label>Search</label>
-        <input id="search" type="text" required>
-    </form>
+    <form th:action="@{/courses/search-redirect}" method="get" style="display:inline;">
+        <label for="search">Search</label>
+        <input id="search" name="data" type="text" required >
+        <button type="submit" style="display:none;">Search</button> </form>
 
     <p>
         <a th:href="@{/courses/new}">Create new course</a>
+        <a th:href="@{/courses}" style="margin-left: 10px;">View All</a>
     </p>
 
     <table>
         <thead>
         <tr>
-            <th>ID</th>
             <th>Title</th>
             <th>Instructor</th>
             <th>Course Code</th>
@@ -32,10 +32,9 @@
         </thead>
         <tbody>
         <tr th:each="c : ${courses}">
-            <td th:text="${c.id}"></td>
             <td th:text="${c.title}"></td>
             <td th:text="${c.instructor}"></td>
-            <td th:text="${c.courseNUM}"></td>
+            <td th:text="${c.courseCode}"></td>
             <td>
                 <a th:href="@{/courses/{id}/edit(id=${c.id})}">Edit</a>
 
