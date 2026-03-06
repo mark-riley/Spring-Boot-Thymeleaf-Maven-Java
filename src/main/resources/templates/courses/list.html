@@ -11,6 +11,11 @@
 <main>
     <h1>Courses</h1>
 
+    <form  style="display:inline;">
+        <label>Search</label>
+        <input id="search" type="text" required>
+    </form>
+
     <p>
         <a th:href="@{/courses/new}">Create new course</a>
     </p>
@@ -21,7 +26,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Instructor</th>
-            <th>Course ID</th>
+            <th>Course Code</th>
             <th>Actions</th>
         </tr>
         </thead>
