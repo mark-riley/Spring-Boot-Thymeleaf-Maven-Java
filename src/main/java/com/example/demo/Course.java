@@ -18,7 +18,7 @@ public class Course {
 
     public Course() {}
 
-    public Course(String title, String instructor, String courseNUM) {
+    public Course(String title, String instructor, String courseCode) {
         this.title = title;
         this.instructor = instructor;
         this.courseCode = courseCode;
@@ -27,9 +27,9 @@ public class Course {
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public String getInstructor() { return instructor; }
-    public String getCourseNUM() {return courseCode; }
+    public String getCourseCode() {return courseCode; }
 
     public void setTitle(String title) { this.title = title; }
     public void setInstructor(String instructor) { this.instructor = instructor; }
-    public void setCourseNUM(String courseNUM) {this.courseCode = courseNUM ; }
+    public void setCourseCode(String courseCode) {this.courseCode = courseCode ; }
 }
