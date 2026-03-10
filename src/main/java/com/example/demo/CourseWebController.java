@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/courses")
 public class CourseWebController {
@@ -14,14 +16,20 @@ public class CourseWebController {
         this.repo = repo;
     }
 
-    // LIST: show all courses
+    // NEW: The "Middle-man" that transforms the form parameter into a path variable
+    @GetMapping("/search-redirect")
+    public String searchRedirect(@RequestParam String data) {
+        return "redirect:/courses/" + data;
+    }
+
+
     @GetMapping
     public String list(Model model) {
         model.addAttribute("courses", repo.findAll());
         return "courses/list";
     }
 
-    // CREATE FORM: show an empty form
+
     @GetMapping("/new")
     public String newForm(Model model) {
         model.addAttribute("course", new Course());
@@ -29,7 +37,7 @@ public class CourseWebController {
         return "courses/form";
     }
 
-    // CREATE SUBMIT: save the posted form
+
     @PostMapping
     public String create(@ModelAttribute("course") Course course) {
         repo.save(course);
@@ -46,6 +54,14 @@ public class CourseWebController {
         return "courses/form";
     }
 
+
+    @GetMapping("/{data}")
+    public String searchForm(@PathVariable String data, Model model) {
+        List<Course> filteredCourses = repo.searchAllFields(data);
+        model.addAttribute("courses", filteredCourses);
+        return "courses/list";
+    }
+
     // UPDATE SUBMIT: update an existing course
     @PostMapping("/{id}")
     public String update(@PathVariable Long id, @ModelAttribute("course") Course updated) {
@@ -54,6 +70,7 @@ public class CourseWebController {
 
         course.setTitle(updated.getTitle());
         course.setInstructor(updated.getInstructor());
+        course.setCourseCode(updated.getCourseCode());
         repo.save(course);
 
         return "redirect:/courses";

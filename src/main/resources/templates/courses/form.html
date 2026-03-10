@@ -26,6 +26,11 @@
         </div>
 
         <div>
+            <label for="courseCode">Course Code</label>
+            <input id="courseCode" type="text" th:field="*{courseCode}" required>
+        </div>
+
+        <div>
             <button type="submit" th:text="${mode == 'create' ? 'Create' : 'Save'}"></button>
             <a th:href="@{/courses}">Cancel</a>
         </div>
