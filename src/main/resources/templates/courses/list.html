@@ -9,43 +9,61 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <main>
-    <h1>Courses</h1>
+    <h2>Courses</h2>
 
-    <form th:action="@{/courses/search-redirect}" method="get" style="display:inline;">
-        <label for="search">Search</label>
-        <input id="search" name="data" type="text" required >
-        <button type="submit" style="display:none;">Search</button> </form>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <form th:action="@{/courses/search-redirect}" method="get" style="display:inline;">
+                <label for="search">Search</label>
+                <input id="search" name="data" type="text" required >
+                <button type="submit" style="display:none;">Search</button>
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <p>
+                <button><a th:href="@{/courses/new}">Create new course</a></button>
+                <button style="margin-left: 10px;"><a th:href="@{/courses}">View All</a></button>
+            </p>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <table>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Instructor</th>
+                    <th>Course Code</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="c : ${courses}">
+                    <td th:text="${c.title}"></td>
+                    <td th:text="${c.instructor}"></td>
+                    <td th:text="${c.courseCode}"></td>
+                    <td>
 
-    <p>
-        <button><a th:href="@{/courses/new}">Create new course</a></button>
-        <button style="margin-left: 10px;"><a th:href="@{/courses}">View All</a></button>
-    </p>
+                        <button><a th:href="@{/courses/{id}/edit(id=${c.id})}">Edit</a></button>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Instructor</th>
-            <th>Course Code</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="c : ${courses}">
-            <td th:text="${c.title}"></td>
-            <td th:text="${c.instructor}"></td>
-            <td th:text="${c.courseCode}"></td>
-            <td>
+                        <form th:action="@{/courses/{id}/delete(id=${c.id})}" method="post" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
 
-                <button><a th:href="@{/courses/{id}/edit(id=${c.id})}">Edit</a></button>
-
-                <form th:action="@{/courses/{id}/delete(id=${c.id})}" method="post" style="display:inline;">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </main>
 
 </body>
