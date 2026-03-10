@@ -6,9 +6,15 @@
     <header>
         <h2>Course App</h2>
         <nav>
-            <a th:href="@{/hello}">Hello</a> |
-            <a th:href="@{/courses}">Courses</a> |
-            <a th:href="@{/api/courses}">API</a>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <a th:href="@{/hello}" class="btn btn-default" role="button">Hello</a> |
+                <a th:href="@{/courses}" class="btn btn-default" role="button">Courses</a> |
+                <a th:href="@{/api/courses}" class="btn btn-default" role="button">API</a>
+            </div>
+            <div class="col-sm-1"></div>
         </nav>
         <hr>
     </header>
